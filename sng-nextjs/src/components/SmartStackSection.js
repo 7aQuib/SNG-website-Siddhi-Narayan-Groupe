@@ -74,6 +74,7 @@ export default function SmartStackSection() {
   const cardsWrapperRef = useRef(null);
   const cardsRef = useRef([]);
 
+  useGSAP(() => {
     let mm = gsap.matchMedia();
 
     mm.add("(min-width: 1024px)", () => {
