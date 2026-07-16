@@ -2364,14 +2364,12 @@ body {
     font-size: 3rem !important;
   }
   .stat-card {
-    left: 10px !important;
-    bottom: -10px !important;
-    padding: var(--space-4) !important;
-  }
-  .stat-card div:first-child {
-    font-size: 2rem !important;
+    top: -10px !important;
+    right: -10px !important;
+    left: auto !important;
+    bottom: auto !important;
   }
   .story-grid {
-    gap: var(--space-12) !important;
+    gap: var(--space-8) !important;
   }
 }
