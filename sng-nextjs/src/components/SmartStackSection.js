@@ -74,74 +74,82 @@ export default function SmartStackSection() {
   const cardsWrapperRef = useRef(null);
   const cardsRef = useRef([]);
 
-  useGSAP(() => {
-    if (typeof window !== 'undefined' && window.lenis) {
-      window.lenis.on('scroll', ScrollTrigger.update);
-    }
+    let mm = gsap.matchMedia();
 
-    const cards = cardsRef.current;
-    
-    // Initial Setup: Stack cards behind each other
-    cards.forEach((card, i) => {
-      // Ensure z-index puts the first card on top!
-      gsap.set(card, { zIndex: cards.length - i });
+    mm.add("(min-width: 1024px)", () => {
+      if (typeof window !== 'undefined' && window.lenis) {
+        window.lenis.on('scroll', ScrollTrigger.update);
+      }
+
+      const cards = cardsRef.current;
       
-      if (i === 0) {
-        gsap.set(card, { y: 0, scale: 1, opacity: 1 });
-      } else {
-        gsap.set(card, { 
-          y: i * 20, // increased y offset slightly for better depth
-          scale: 1 - (i * 0.04), // increased scale difference
-          opacity: 1 // Keep opacity 1 so they don't mix content visually
-        });
-      }
-    });
+      // Initial Setup: Stack cards behind each other
+      cards.forEach((card, i) => {
+        // Ensure z-index puts the first card on top!
+        gsap.set(card, { zIndex: cards.length - i });
+        
+        if (i === 0) {
+          gsap.set(card, { y: 0, scale: 1, opacity: 1 });
+        } else {
+          gsap.set(card, { 
+            y: i * 20,
+            scale: 1 - (i * 0.04),
+            opacity: 1
+          });
+        }
+      });
 
-    // Create the master timeline for the pinned scroll
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: "+=300%", // Reduced from 400% so you don't have to scroll as far
-        scrub: 0.5, // Reduced from 1 to make the cards respond snappier to the scroll wheel
-        pin: true, 
-        anticipatePin: 1
-      }
-    });
+      // Create the master timeline for the pinned scroll
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "+=300%",
+          scrub: 0.5,
+          pin: true, 
+          anticipatePin: 1
+        }
+      });
 
-    // We have 5 cards, so we need 4 transitions
-    const numTransitions = cards.length - 1;
+      const numTransitions = cards.length - 1;
 
-    for (let i = 0; i < numTransitions; i++) {
-      // Create a sub-timeline for each scroll step
-      const stepTl = gsap.timeline();
+      for (let i = 0; i < numTransitions; i++) {
+        const stepTl = gsap.timeline();
 
-      // 1. Animate the current top card EXITING upwards
-      stepTl.to(cards[i], {
-        y: -300, // Move it further up so it cleanly exits the screen
-        opacity: 0, 
-        scale: 0.92,
-        duration: 1,
-        ease: "power2.inOut"
-      }, 0);
-
-      // 2. Animate all remaining cards moving UP one slot in the stack
-      for (let j = i + 1; j < cards.length; j++) {
-        const newIndex = j - (i + 1); // How many slots from the NEW top
-        stepTl.to(cards[j], {
-          y: newIndex * 20,
-          scale: 1 - (newIndex * 0.04),
+        stepTl.to(cards[i], {
+          y: -300,
+          opacity: 0, 
+          scale: 0.92,
           duration: 1,
           ease: "power2.inOut"
         }, 0);
-      }
 
-      // Add this step to the main timeline
-      tl.add(stepTl);
-    }
-    
+        for (let j = i + 1; j < cards.length; j++) {
+          const newIndex = j - (i + 1);
+          stepTl.to(cards[j], {
+            y: newIndex * 20,
+            scale: 1 - (newIndex * 0.04),
+            duration: 1,
+            ease: "power2.inOut"
+          }, 0);
+        }
+
+        tl.add(stepTl);
+      }
+    });
+
+    mm.add("(max-width: 1023px)", () => {
+       // Clear GSAP inline styles on mobile so natural CSS applies
+       cardsRef.current.forEach(card => {
+         gsap.set(card, { clearProps: "all" });
+       });
+    });
+
     return () => {
-      ScrollTrigger.getAll().forEach(t => t.kill());
+      mm.revert();
+      if (typeof window !== 'undefined' && window.lenis) {
+         window.lenis.off('scroll', ScrollTrigger.update);
+      }
     };
   }, { scope: containerRef });
 
@@ -169,15 +177,15 @@ export default function SmartStackSection() {
         {/* Right Content (Cards Stack) */}
         <div 
           ref={cardsWrapperRef} 
-          className="relative w-full lg:w-7/12 h-[600px] perspective-1000 flex justify-center items-center"
+          className="relative w-full lg:w-7/12 h-auto lg:h-[600px] flex flex-col lg:block justify-center items-center"
           style={{ perspective: "1000px" }}
         >
-          <div className="relative w-full max-w-[550px] h-full flex justify-center items-center">
+          <div className="relative w-full max-w-[550px] h-full flex flex-col lg:block justify-center items-center gap-6">
             {CARDS_DATA.map((cardData, index) => (
               <div 
                 key={index}
                 ref={el => cardsRef.current[index] = el}
-                className="absolute w-full top-0 left-0"
+                className="relative lg:absolute w-full lg:top-0 lg:left-0"
               >
                 <SmartCard {...cardData} index={index} />
               </div>

@@ -41,8 +41,7 @@ export default function About() {
       <section id="legacy" className="story-section"
         style={{ padding: "var(--space-12) 0", background: "var(--bg)", position: "relative", overflow: "hidden" }}>
         <div className="container">
-          <div className="story-grid"
-            style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--space-8)", alignItems: "center" }}>
+          <div className="story-grid grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
 
             <div className="story-content reveal" data-speed="0.05">
               <span className="eyebrow">33 Years Of Excellence</span>
@@ -58,7 +57,7 @@ export default function About() {
               </p>
             </div>
 
-            <div className="story-visual reveal" data-speed="-0.05" style={{ position: "relative", width: "85%", margin: "0 auto" }}>
+            <div className="story-visual reveal mt-12 lg:mt-0 relative w-[95%] lg:w-[85%] mx-auto" data-speed="-0.05">
               <div className="image-placeholder"
                 style={{
                   width: "100%",
@@ -301,8 +300,7 @@ export default function About() {
       <section id="philosophy" className="story-section parallax-wrapper"
         style={{ paddingTop: "60px", paddingBottom: "var(--space-12)", background: "var(--surface-warm)", color: "var(--fg)", position: "relative" }}>
         <div className="container">
-          <div className="story-grid"
-            style={{ display: "grid", gridTemplateColumns: "1fr 1.5fr", gap: "var(--space-10)", alignItems: "start" }}>
+          <div className="story-grid grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-10 items-start">
 
             <div className="values-text reveal">
               <span className="eyebrow">Core Values</span>
@@ -318,7 +316,7 @@ export default function About() {
               </p>
             </div>
 
-            <div className="strength-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--space-4)" }}>
+            <div className="strength-grid grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 lg:mt-0">
               <div className="strength-card reveal">
                 <Droplet style={{ color: "var(--accent)", marginBottom: "16px" }} />
                 <h3>Transparency</h3>
@@ -352,7 +350,7 @@ export default function About() {
             <h2 className="section-title">The Brains Behind the <em>Legacy</em></h2>
           </div>
 
-          <div className="leadership-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--space-8)" }}>
+          <div className="leadership-grid grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="leader-card reveal interactive-card"
               style={{ border: "1px solid var(--border)", padding: "var(--space-8)", position: "relative", overflow: "hidden" }}>
               <div className="leader-bg"

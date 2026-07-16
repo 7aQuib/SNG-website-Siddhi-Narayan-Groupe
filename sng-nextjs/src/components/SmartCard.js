@@ -3,7 +3,7 @@ import React from 'react';
 const SmartCard = ({ letter, title, description, features, icon: Icon, index }) => {
   return (
     <div 
-      className="smart-card-gsap absolute w-full max-w-[600px] left-1/2 -translate-x-1/2 top-0 origin-top overflow-hidden"
+      className="smart-card-gsap relative lg:absolute w-full max-w-[600px] lg:left-1/2 lg:-translate-x-1/2 lg:top-0 origin-top overflow-hidden"
       style={{
         background: "rgba(255, 255, 255, 0.95)",
         backdropFilter: "blur(12px)",
