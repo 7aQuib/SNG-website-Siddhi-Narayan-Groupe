@@ -362,7 +362,9 @@ export default function About() {
         <div className="container max-w-6xl text-center">
           
           <div className="awards-intro">
-            <Award size={40} strokeWidth={1} style={{ color: 'var(--accent)' }} className="mx-auto mb-6" />
+            <div className="flex justify-center mb-6">
+              <Award size={64} strokeWidth={1} style={{ color: 'var(--accent)' }} />
+            </div>
             <span className="eyebrow" style={{ color: '#888' }}>Honored by the Governor of Maharashtra</span>
             <h2 className="section-title" style={{ color: '#fff', textTransform: 'none', marginBottom: 'var(--space-12)' }}>
               For the remarkable project "Thane Next" — <br className="hidden md:block" />
