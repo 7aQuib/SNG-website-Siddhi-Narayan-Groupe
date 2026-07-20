@@ -196,7 +196,7 @@ export default function About() {
                 alt="33 Years of Legacy" 
                 className="legacy-img w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
               />
-              <div className="legacy-stat absolute bottom-0 left-0 pl-10 pb-10 pr-12 pt-12 border-t border-r rounded-tr-[var(--radius-lg)]" style={{ backgroundColor: 'var(--surface-warm)', borderColor: 'var(--border)' }}>
+              <div className="legacy-stat absolute bottom-0 left-0 p-10 border-t border-r rounded-tr-[var(--radius-lg)] text-center" style={{ backgroundColor: 'var(--surface-warm)', borderColor: 'var(--border)' }}>
                 <div style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-3xl)', color: 'var(--accent)', lineHeight: 1, marginBottom: 'var(--space-2)' }}>
                   3000+
                 </div>
