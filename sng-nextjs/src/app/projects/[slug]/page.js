@@ -278,86 +278,108 @@ export default function ProjectDetailPage({ params }) {
 
       {/* Direct Private Viewing Inquiry Form */}
       <section id="inquiry" className="py-20 md:py-28 bg-[var(--surface-warm)] border-t border-[var(--border)] relative">
-        <div className="container max-w-3xl mx-auto">
+        <div className="container max-w-6xl mx-auto">
           
-          {/* Centered Main Section Header */}
-          <div className="text-center max-w-xl mx-auto mb-12">
-            <span className="eyebrow block mb-3 text-[var(--accent)] text-xs uppercase tracking-[0.25em] font-mono font-semibold">
-              Exclusive Invitation
-            </span>
-            <h2 className="section-title text-3xl md:text-5xl uppercase mb-5 font-serif font-light tracking-tight text-[var(--fg)]">
-              Arrange a Private <em>Viewing</em>
-            </h2>
-            <p className="text-xs sm:text-sm text-[var(--fg-2)] leading-relaxed">
-              Connect directly with the Siddhi Narayan Group executive team for private pricing, floor plans, and spatial consultations for {project.title}.
-            </p>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            {/* Left Hand Side: Section Header & Contact Highlights */}
+            <div className="lg:col-span-5 text-left">
+              <span className="eyebrow block mb-3 text-[var(--accent)] text-xs uppercase tracking-[0.25em] font-mono font-semibold">
+                Exclusive Invitation
+              </span>
+              <h2 className="section-title text-3xl sm:text-4xl md:text-5xl uppercase mb-6 font-serif font-light tracking-tight text-[var(--fg)] leading-tight">
+                Arrange a Private <em>Viewing</em><span style={{ color: "var(--accent)" }}>.</span>
+              </h2>
+              <p className="text-xs sm:text-sm text-[var(--fg-2)] leading-relaxed mb-8">
+                Connect directly with the Siddhi Narayan Group executive team for private pricing, floor plans, and spatial consultations for {project.title}.
+              </p>
 
-          {/* Structured White Form Card Container */}
-          <div className="bg-[var(--surface)] p-8 sm:p-12 md:p-14 rounded-[var(--radius-lg)] border border-[var(--border)] shadow-xl relative z-10">
-            <form className="space-y-6 text-left" onSubmit={(e) => e.preventDefault()}>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {/* Direct Contact Info Pills */}
+              <div className="space-y-4 pt-4 border-t border-[var(--border)] text-xs text-[var(--fg)]">
                 <div>
-                  <label className="block text-[11px] uppercase tracking-widest text-[var(--fg)] font-mono font-semibold mb-2">
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="e.g. Alexander Wright"
-                    required
-                    className="w-full h-12 px-5 text-xs bg-[var(--bg)] text-[var(--fg)] border border-[var(--border)] rounded-[var(--radius-md)] focus:outline-none focus:border-[var(--accent)] transition-colors"
-                  />
+                  <span className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-mono block mb-1">Direct Helpline</span>
+                  <span className="font-semibold text-sm text-[var(--accent)] font-mono">+91 98765 43210</span>
                 </div>
-
                 <div>
-                  <label className="block text-[11px] uppercase tracking-widest text-[var(--fg)] font-mono font-semibold mb-2">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    placeholder="+91 98765 43210"
-                    required
-                    className="w-full h-12 px-5 text-xs bg-[var(--bg)] text-[var(--fg)] border border-[var(--border)] rounded-[var(--radius-md)] focus:outline-none focus:border-[var(--accent)] transition-colors"
-                  />
+                  <span className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-mono block mb-1">Executive Office</span>
+                  <span className="font-semibold text-xs text-[var(--fg)]">Siddhi Narayan Group HQ, Thane &amp; MMR</span>
+                </div>
+                <div>
+                  <span className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-mono block mb-1">Electronic Mail</span>
+                  <span className="font-semibold text-xs text-[var(--fg-2)] font-mono">contact@siddhinarayan.com</span>
                 </div>
               </div>
+            </div>
 
-              <div>
-                <label className="block text-[11px] uppercase tracking-widest text-[var(--fg)] font-mono font-semibold mb-2">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  placeholder="alexander@example.com"
-                  required
-                  className="w-full h-12 px-5 text-xs bg-[var(--bg)] text-[var(--fg)] border border-[var(--border)] rounded-[var(--radius-md)] focus:outline-none focus:border-[var(--accent)] transition-colors"
-                />
+            {/* Right Hand Side: Form Card Container */}
+            <div className="lg:col-span-7">
+              <div className="bg-[var(--surface)] p-8 sm:p-10 md:p-12 rounded-[var(--radius-lg)] border border-[var(--border)] shadow-xl relative z-10">
+                <form className="space-y-5 text-left" onSubmit={(e) => e.preventDefault()}>
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-[11px] uppercase tracking-widest text-[var(--fg)] font-mono font-semibold mb-2">
+                        Full Name
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="e.g. Alexander Wright"
+                        required
+                        className="w-full h-12 px-5 text-xs bg-[var(--bg)] text-[var(--fg)] border border-[var(--border)] rounded-[var(--radius-md)] focus:outline-none focus:border-[var(--accent)] transition-colors"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-[11px] uppercase tracking-widest text-[var(--fg)] font-mono font-semibold mb-2">
+                        Phone Number
+                      </label>
+                      <input
+                        type="tel"
+                        placeholder="+91 98765 43210"
+                        required
+                        className="w-full h-12 px-5 text-xs bg-[var(--bg)] text-[var(--fg)] border border-[var(--border)] rounded-[var(--radius-md)] focus:outline-none focus:border-[var(--accent)] transition-colors"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-[11px] uppercase tracking-widest text-[var(--fg)] font-mono font-semibold mb-2">
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      placeholder="alexander@example.com"
+                      required
+                      className="w-full h-12 px-5 text-xs bg-[var(--bg)] text-[var(--fg)] border border-[var(--border)] rounded-[var(--radius-md)] focus:outline-none focus:border-[var(--accent)] transition-colors"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-[11px] uppercase tracking-widest text-[var(--fg)] font-mono font-semibold mb-2">
+                      Selected Sanctuary
+                    </label>
+                    <input
+                      type="text"
+                      value={`${project.title} (${project.subtitle})`}
+                      readOnly
+                      className="w-full h-12 px-5 text-xs bg-[var(--surface-warm)] text-[var(--fg)] border border-[var(--border)] rounded-[var(--radius-md)] cursor-not-allowed font-medium"
+                    />
+                  </div>
+
+                  {/* Submit Button */}
+                  <div className="pt-3">
+                    <button
+                      type="submit"
+                      className="w-full h-13 px-8 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-[var(--accent-on)] font-semibold text-[11px] uppercase tracking-widest rounded-full transition-all shadow-md hover:shadow-lg inline-flex items-center justify-center gap-2"
+                    >
+                      Request Portfolio Dossier &amp; Appointment
+                    </button>
+                  </div>
+
+                </form>
               </div>
+            </div>
 
-              <div>
-                <label className="block text-[11px] uppercase tracking-widest text-[var(--fg)] font-mono font-semibold mb-2">
-                  Selected Sanctuary
-                </label>
-                <input
-                  type="text"
-                  value={`${project.title} (${project.subtitle})`}
-                  readOnly
-                  className="w-full h-12 px-5 text-xs bg-[var(--surface-warm)] text-[var(--fg)] border border-[var(--border)] rounded-[var(--radius-md)] cursor-not-allowed font-medium"
-                />
-              </div>
-
-              {/* Clean In-Card Button */}
-              <div className="pt-4 text-center">
-                <button
-                  type="submit"
-                  className="w-full sm:w-auto h-13 px-10 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-[var(--accent-on)] font-semibold text-[11px] uppercase tracking-widest rounded-full transition-all shadow-md hover:shadow-lg inline-flex items-center justify-center gap-2"
-                >
-                  Request Portfolio Dossier &amp; Appointment
-                </button>
-              </div>
-
-            </form>
           </div>
 
         </div>
