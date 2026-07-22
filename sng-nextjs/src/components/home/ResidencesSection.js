@@ -1,6 +1,4 @@
-
 import React from 'react';
-import Image from 'next/image';
 
 export default function ResidencesSection() {
   return (
@@ -19,8 +17,7 @@ export default function ResidencesSection() {
             <span className="pasr-card-num">01</span>
             <h3 className="pasr-card-title">Spatial Purity</h3>
             <p className="pasr-card-body">
-              Reinterpreting the traditional machiya structure through a
-              dialogue of negative space and monumental scale.
+              Designing homes with architectural minimalism, optimizing cross-ventilation, expansive layouts, and panoramic natural light.
             </p>
             <a href="#contact" className="pasr-card-link">
               Learn More
@@ -32,10 +29,9 @@ export default function ResidencesSection() {
           {/* Card 2 */}
           <div className="pasr-card">
             <span className="pasr-card-num">02</span>
-            <h3 className="pasr-card-title">Raw Materials</h3>
+            <h3 className="pasr-card-title">Enduring Quality</h3>
             <p className="pasr-card-body">
-              A meticulous curation of honed travertine, carbon-charred cedar
-              wood, and sand-cast blackened bronze detailing.
+              A meticulous selection of hand-picked Italian marble, premium brass fixtures, and sustainable reinforced concrete structures.
             </p>
             <a href="#contact" className="pasr-card-link">
               Learn More
@@ -47,10 +43,9 @@ export default function ResidencesSection() {
           {/* Card 3 */}
           <div className="pasr-card">
             <span className="pasr-card-num">03</span>
-            <h3 className="pasr-card-title">Light &amp; Shadow</h3>
+            <h3 className="pasr-card-title">Light &amp; Climate</h3>
             <p className="pasr-card-body">
-              Architectural framing built to track the daily sun cycle, turning
-              walls into living canvases of volumetric shadows.
+              Dynamic facade orientation crafted to maximize morning sunlight while protecting living spaces from harsh tropical heat.
             </p>
             <a href="#contact" className="pasr-card-link">
               Learn More
@@ -62,10 +57,9 @@ export default function ResidencesSection() {
           {/* Card 4 */}
           <div className="pasr-card">
             <span className="pasr-card-num">04</span>
-            <h3 className="pasr-card-title">Sanctuary Life</h3>
+            <h3 className="pasr-card-title">Sanctuary Living</h3>
             <p className="pasr-card-body">
-              Subterranean geothermal onsens, meditative tea houses, and
-              wellness pavilions for spiritual centering.
+              Comprehensive lifestyle spaces—temperature-controlled pools, meditative gardens, and multi-tier security for peace of mind.
             </p>
             <a href="#contact" className="pasr-card-link">
               Learn More

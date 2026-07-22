@@ -14,8 +14,8 @@ export default function FAQSection() {
 
         <div className="accordion">
           <div className="accordion-item">
-            <button className="accordion-header" onClick={(e) => window.toggleAccordion(e.currentTarget)}>
-              <span className="accordion-title">What is SNG Sunrise Legacy?</span>
+            <button className="accordion-header" onClick={(e) => window.toggleAccordion && window.toggleAccordion(e.currentTarget)}>
+              <span className="accordion-title">What is Siddhi Narayan Group (SNG)?</span>
               <span className="accordion-icon">
                 <svg viewBox="0 0 24 24">
                   <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
@@ -24,17 +24,14 @@ export default function FAQSection() {
             </button>
             <div className="accordion-content">
               <div className="accordion-content-inner">
-                SNG Sunrise Legacy creates timeless residences that blend
-                architecture, nature, and refined living. In collaboration with
-                master architects, we design properties that embody warmth,
-                trust, and ultimate sophistication.
+                Siddhi Narayan Group (SNG) is a premier real estate developer founded in 1993 by Shri. Narayan Machha. With over 33+ years of architectural excellence, SNG crafts luxury residential and commercial developments focused on quality, transparency, and timely delivery.
               </div>
             </div>
           </div>
 
           <div className="accordion-item">
-            <button className="accordion-header" onClick={(e) => window.toggleAccordion(e.currentTarget)}>
-              <span className="accordion-title">Where are the residences located?</span>
+            <button className="accordion-header" onClick={(e) => window.toggleAccordion && window.toggleAccordion(e.currentTarget)}>
+              <span className="accordion-title">Where are SNG's developments located?</span>
               <span className="accordion-icon">
                 <svg viewBox="0 0 24 24">
                   <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
@@ -43,17 +40,14 @@ export default function FAQSection() {
             </button>
             <div className="accordion-content">
               <div className="accordion-content-inner">
-                Our flagship project is nestled in the historic Higashiyama
-                district of Kyoto, Japan. Other completed and pipeline
-                residences are strategically placed in Niseko, Tokyo, and
-                Florence, matching historical context with spatial minimalism.
+                Our flagship developments and pipeline projects are strategically situated in prime locations across Thane, the Bhiwandi-Kalyan corridor, and the Mumbai Metropolitan Region (MMR), providing excellent connectivity to major transport hubs and business centers.
               </div>
             </div>
           </div>
 
           <div className="accordion-item">
-            <button className="accordion-header" onClick={(e) => window.toggleAccordion(e.currentTarget)}>
-              <span className="accordion-title">How can I enquire about a residence?</span>
+            <button className="accordion-header" onClick={(e) => window.toggleAccordion && window.toggleAccordion(e.currentTarget)}>
+              <span className="accordion-title">Are all SNG projects MahaRERA registered?</span>
               <span className="accordion-icon">
                 <svg viewBox="0 0 24 24">
                   <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
@@ -62,10 +56,23 @@ export default function FAQSection() {
             </button>
             <div className="accordion-content">
               <div className="accordion-content-inner">
-                Aura Residences are acquired strictly via our private digital
-                registry. Please register your interest through our inquiry
-                form, and a dedicated registry director will coordinate a
-                confidential viewing.
+                Yes, absolute transparency is core to SNG's philosophy. All SNG projects, including Shivam Residency (Thane Next), strictly adhere to MahaRERA guidelines and possess full statutory clearances.
+              </div>
+            </div>
+          </div>
+
+          <div className="accordion-item">
+            <button className="accordion-header" onClick={(e) => window.toggleAccordion && window.toggleAccordion(e.currentTarget)}>
+              <span className="accordion-title">How can I schedule a site visit or inquiry?</span>
+              <span className="accordion-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
+                </svg>
+              </span>
+            </button>
+            <div className="accordion-content">
+              <div className="accordion-content-inner">
+                You can easily arrange a private site visit by filling out our online inquiry form below, or by directly contacting our executive desk at contact@siddhinarayan.com. Our relationship manager will assist you with floor plans and booking procedures.
               </div>
             </div>
           </div>
