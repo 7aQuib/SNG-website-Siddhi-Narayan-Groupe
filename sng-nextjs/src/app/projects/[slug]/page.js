@@ -327,46 +327,47 @@ export default function ProjectDetailPage({ params }) {
             </p>
           </div>
 
-          <div className="bg-[var(--surface)] p-8 md:p-12 rounded-[var(--radius-lg)] border border-[var(--border)] shadow-xl">
+          <div className="bg-[var(--surface)] p-8 sm:p-12 md:p-16 rounded-[var(--radius-lg)] border border-[var(--border)] shadow-xl relative z-10">
             <form className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left" onSubmit={(e) => e.preventDefault()}>
-              <div>
-                <label className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-mono block mb-2">Full Name</label>
+              <div className="form-group">
+                <label className="form-label">Full Name</label>
                 <input
                   type="text"
                   placeholder="e.g. Alexander Wright"
                   required
-                  className="w-full px-5 py-3.5 text-xs bg-[var(--bg)] text-[var(--fg)] border border-[var(--border)] rounded-full focus:outline-none focus:border-[var(--accent)] transition-colors"
+                  className="form-input"
                 />
               </div>
-              <div>
-                <label className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-mono block mb-2">Phone Number</label>
+              <div className="form-group">
+                <label className="form-label">Phone Number</label>
                 <input
                   type="tel"
                   placeholder="+91 98765 43210"
                   required
-                  className="w-full px-5 py-3.5 text-xs bg-[var(--bg)] text-[var(--fg)] border border-[var(--border)] rounded-full focus:outline-none focus:border-[var(--accent)] transition-colors"
+                  className="form-input"
                 />
               </div>
-              <div className="md:col-span-2">
-                <label className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-mono block mb-2">Email Address</label>
+              <div className="form-group md:col-span-2">
+                <label className="form-label">Email Address</label>
                 <input
                   type="email"
                   placeholder="alexander@example.com"
                   required
-                  className="w-full px-5 py-3.5 text-xs bg-[var(--bg)] text-[var(--fg)] border border-[var(--border)] rounded-full focus:outline-none focus:border-[var(--accent)] transition-colors"
+                  className="form-input"
                 />
               </div>
-              <div className="md:col-span-2">
-                <label className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-mono block mb-2">Selected Sanctuary</label>
+              <div className="form-group md:col-span-2">
+                <label className="form-label">Selected Sanctuary</label>
                 <input
                   type="text"
                   value={`${project.title} (${project.subtitle})`}
                   readOnly
-                  className="w-full px-5 py-3.5 text-xs bg-[var(--surface-warm)] text-[var(--fg)] border border-[var(--border)] rounded-full cursor-not-allowed font-medium"
+                  className="form-input"
+                  style={{ backgroundColor: 'var(--surface-warm)', cursor: 'not-allowed' }}
                 />
               </div>
-              <div className="md:col-span-2 text-center pt-4">
-                <button type="submit" className="btn btn-primary w-full sm:w-auto px-12 py-4">
+              <div className="md:col-span-2 text-center pt-6">
+                <button type="submit" className="btn btn-primary px-10 py-4">
                   Request Portfolio Dossier &amp; Appointment
                 </button>
               </div>
