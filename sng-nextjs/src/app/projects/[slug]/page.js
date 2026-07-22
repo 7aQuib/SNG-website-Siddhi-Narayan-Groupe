@@ -9,8 +9,6 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import SwipeableGallery from '@/components/projects/SwipeableGallery';
-import HorizontalTimelineSpecs from '@/components/projects/HorizontalTimelineSpecs';
-
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
@@ -203,8 +201,38 @@ export default function ProjectDetailPage({ params }) {
         </div>
       </section>
 
-      {/* Animated Horizontal Timeline Specifications Section */}
-      <HorizontalTimelineSpecs specifications={project.specifications} projectTitle={project.title} />
+      {/* Key Specifications Grid */}
+      <section className="py-20 md:py-28">
+        <div className="container">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-14 gap-6">
+            <div>
+              <span className="eyebrow block mb-2 text-[var(--accent)] text-xs uppercase tracking-[0.2em] font-mono font-semibold">Technical Precision</span>
+              <h2 className="section-title text-3xl md:text-4xl uppercase font-serif font-light tracking-tight">
+                Project <em>Specifications</em>
+              </h2>
+            </div>
+            <p className="text-xs sm:text-sm text-[var(--fg-2)] max-w-sm leading-relaxed">
+              Every millimeter engineered for spatial balance, climate resilience, and enduring value.
+            </p>
+          </div>
+
+          <div className="anim-specs-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            {project.specifications.map((spec, idx) => (
+              <div
+                key={idx}
+                className="anim-spec-card pasr-card p-6 min-h-[130px] flex flex-col justify-between border border-[var(--border)] bg-[var(--surface-warm)] rounded-[var(--radius-md)] hover:border-[var(--accent)] hover:shadow-xl transition-all group"
+              >
+                <span className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-mono block group-hover:text-[var(--accent)] transition-colors mb-2">
+                  {spec.label}
+                </span>
+                <span className="text-sm sm:text-base font-semibold text-[var(--fg)] font-sans tracking-wide">
+                  {spec.value}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Image Gallery Showcase - 2 Column Layout */}
       <section className="py-20 md:py-28 bg-[var(--surface)] border-t border-b border-[var(--border)] overflow-hidden">
