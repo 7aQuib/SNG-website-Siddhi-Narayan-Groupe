@@ -9,6 +9,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import SwipeableGallery from '@/components/projects/SwipeableGallery';
+import HorizontalTimelineSpecs from '@/components/projects/HorizontalTimelineSpecs';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -202,38 +203,8 @@ export default function ProjectDetailPage({ params }) {
         </div>
       </section>
 
-      {/* Key Specifications Grid */}
-      <section className="py-20 md:py-28">
-        <div className="container">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-14 gap-6">
-            <div>
-              <span className="eyebrow block mb-2 text-[var(--accent)] text-xs uppercase tracking-[0.2em] font-mono font-semibold">Technical Precision</span>
-              <h2 className="section-title text-3xl md:text-4xl uppercase font-serif font-light tracking-tight">
-                Project <em>Specifications</em>
-              </h2>
-            </div>
-            <p className="text-xs sm:text-sm text-[var(--fg-2)] max-w-sm leading-relaxed">
-              Every millimeter engineered for spatial balance, climate resilience, and enduring value.
-            </p>
-          </div>
-
-          <div className="anim-specs-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {project.specifications.map((spec, idx) => (
-              <div
-                key={idx}
-                className="anim-spec-card pasr-card p-6 min-h-[130px] flex flex-col justify-between border border-[var(--border)] bg-[var(--surface-warm)] rounded-[var(--radius-md)] hover:border-[var(--accent)] hover:shadow-xl transition-all group"
-              >
-                <span className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-mono block group-hover:text-[var(--accent)] transition-colors mb-2">
-                  {spec.label}
-                </span>
-                <span className="text-sm sm:text-base font-semibold text-[var(--fg)] font-sans tracking-wide">
-                  {spec.value}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Animated Horizontal Timeline Specifications Section */}
+      <HorizontalTimelineSpecs specifications={project.specifications} projectTitle={project.title} />
 
       {/* Image Gallery Showcase - 2 Column Layout */}
       <section className="py-20 md:py-28 bg-[var(--surface)] border-t border-b border-[var(--border)] overflow-hidden">
@@ -276,112 +247,105 @@ export default function ProjectDetailPage({ params }) {
         </div>
       </section>
 
-      {/* Direct Private Viewing Inquiry Form */}
+      {/* Direct Private Viewing Inquiry Form (Matches Home Page ContactSection) */}
       <section id="inquiry" className="py-20 md:py-28 bg-[var(--surface-warm)] border-t border-[var(--border)] relative">
-        <div className="container max-w-6xl mx-auto">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
-            {/* Left Hand Side: Section Header & Contact Highlights */}
-            <div className="lg:col-span-5 text-left">
-              <span className="eyebrow block mb-3 text-[var(--accent)] text-xs uppercase tracking-[0.25em] font-mono font-semibold">
-                Exclusive Invitation
-              </span>
-              <h2 className="section-title text-3xl sm:text-4xl md:text-5xl uppercase mb-6 font-serif font-light tracking-tight text-[var(--fg)] leading-tight">
-                Arrange a Private <em>Viewing</em><span style={{ color: "var(--accent)" }}>.</span>
-              </h2>
-              <p className="text-xs sm:text-sm text-[var(--fg-2)] leading-relaxed mb-8">
-                Connect directly with the Siddhi Narayan Group executive team for private pricing, floor plans, and spatial consultations for {project.title}.
-              </p>
+        <div className="container">
+          <div className="inquiry-grid">
 
-              {/* Direct Contact Info Pills */}
-              <div className="space-y-4 pt-4 border-t border-[var(--border)] text-xs text-[var(--fg)]">
-                <div>
-                  <span className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-mono block mb-1">Direct Helpline</span>
-                  <span className="font-semibold text-sm text-[var(--accent)] font-mono">+91 98765 43210</span>
+            {/* Left side: Contact Card */}
+            <div className="inquiry-left">
+              <div className="inquiry-left-content">
+                <span className="eyebrow">05 / INQUIRE</span>
+                <h2 className="section-title text-3xl sm:text-4xl md:text-5xl uppercase leading-tight font-serif font-light text-[var(--fg)] mt-2">
+                  Begin Your <em>Journey</em><span style={{ color: "var(--accent)" }}>.</span>
+                </h2>
+                <p style={{ color: "var(--fg-2)", fontSize: "var(--text-sm)", fontWeight: "400", marginTop: "var(--space-4)", lineHeight: "1.6" }}>
+                  Siddhi Narayan Group developments are available for private consultations and site visits. Please register your inquiry details for <strong className="text-[var(--fg)] font-semibold">{project.title}</strong> to arrange an appointment with our executive team.
+                </p>
+              </div>
+
+              <div className="inquiry-contact-details">
+                <div className="contact-item">
+                  <span className="contact-label">Telephone</span>
+                  <span className="contact-value">+91 98765 43210</span>
                 </div>
-                <div>
-                  <span className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-mono block mb-1">Executive Office</span>
-                  <span className="font-semibold text-xs text-[var(--fg)]">Siddhi Narayan Group HQ, Thane &amp; MMR</span>
+                <div className="contact-item">
+                  <span className="contact-label">Electronic Mail</span>
+                  <span className="contact-value" style={{ fontSize: "var(--text-base)", textTransform: "lowercase" }}>
+                    contact@siddhinarayan.com
+                  </span>
                 </div>
-                <div>
-                  <span className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-mono block mb-1">Electronic Mail</span>
-                  <span className="font-semibold text-xs text-[var(--fg-2)] font-mono">contact@siddhinarayan.com</span>
+                <div className="contact-item">
+                  <span className="contact-label">Corporate Office</span>
+                  <span className="contact-value" style={{ fontSize: "var(--text-sm)" }}>
+                    SIDDHI NARAYAN GROUP HQ, PRIME BUSINESS HUB, THANE / BHIWANDI REGION, MAHARASHTRA, INDIA
+                  </span>
                 </div>
               </div>
             </div>
 
-            {/* Right Hand Side: Form Card Container */}
-            <div className="lg:col-span-7">
-              <div className="bg-[var(--surface)] p-8 sm:p-10 md:p-12 rounded-[var(--radius-lg)] border border-[var(--border)] shadow-xl relative z-10">
-                <form className="space-y-5 text-left" onSubmit={(e) => e.preventDefault()}>
-                  
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-[11px] uppercase tracking-widest text-[var(--fg)] font-mono font-semibold mb-2">
-                        Full Name
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="e.g. Alexander Wright"
-                        required
-                        className="w-full h-12 px-5 text-xs bg-[var(--bg)] text-[var(--fg)] border border-[var(--border)] rounded-[var(--radius-md)] focus:outline-none focus:border-[var(--accent)] transition-colors"
-                      />
-                    </div>
+            {/* Right side: Inquiry Form */}
+            <div className="inquiry-right">
+              <form id="inquiryForm" onSubmit={(e) => e.preventDefault()}>
+                <div className="form-group">
+                  <label htmlFor="name" className="form-label">Full Name</label>
+                  <input type="text" id="name" className="form-input" placeholder="Enter your full name" required />
+                </div>
 
-                    <div>
-                      <label className="block text-[11px] uppercase tracking-widest text-[var(--fg)] font-mono font-semibold mb-2">
-                        Phone Number
-                      </label>
-                      <input
-                        type="tel"
-                        placeholder="+91 98765 43210"
-                        required
-                        className="w-full h-12 px-5 text-xs bg-[var(--bg)] text-[var(--fg)] border border-[var(--border)] rounded-[var(--radius-md)] focus:outline-none focus:border-[var(--accent)] transition-colors"
-                      />
-                    </div>
-                  </div>
+                <div className="form-group">
+                  <label htmlFor="email" className="form-label">Email Address</label>
+                  <input type="email" id="email" className="form-input" placeholder="Enter your email address" required />
+                </div>
 
-                  <div>
-                    <label className="block text-[11px] uppercase tracking-widest text-[var(--fg)] font-mono font-semibold mb-2">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      placeholder="alexander@example.com"
-                      required
-                      className="w-full h-12 px-5 text-xs bg-[var(--bg)] text-[var(--fg)] border border-[var(--border)] rounded-[var(--radius-md)] focus:outline-none focus:border-[var(--accent)] transition-colors"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-[11px] uppercase tracking-widest text-[var(--fg)] font-mono font-semibold mb-2">
-                      Selected Sanctuary
-                    </label>
-                    <input
-                      type="text"
-                      value={`${project.title} (${project.subtitle})`}
-                      readOnly
-                      className="w-full h-12 px-5 text-xs bg-[var(--surface-warm)] text-[var(--fg)] border border-[var(--border)] rounded-[var(--radius-md)] cursor-not-allowed font-medium"
-                    />
-                  </div>
-
-                  {/* Submit Button */}
-                  <div className="pt-3">
-                    <button
-                      type="submit"
-                      className="w-full h-13 px-8 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-[var(--accent-on)] font-semibold text-[11px] uppercase tracking-widest rounded-full transition-all shadow-md hover:shadow-lg inline-flex items-center justify-center gap-2"
+                <div className="form-group">
+                  <label htmlFor="project-select" className="form-label">Select Project Interest</label>
+                  <div className="relative w-full">
+                    <select
+                      id="project-select"
+                      name="residence-type"
+                      defaultValue={project.title}
+                      className="form-input appearance-none w-full pr-10 cursor-pointer bg-[var(--bg)] text-[var(--fg)] border border-[var(--border)] rounded-[var(--radius-sm)] py-3.5 px-4 text-sm font-body transition-all focus:border-[var(--accent)]"
+                      style={{
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23c2a661' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")`,
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'right 16px center',
+                        backgroundSize: '16px',
+                      }}
                     >
-                      Request Portfolio Dossier &amp; Appointment
-                    </button>
+                      {projectsData.map((p) => (
+                        <option key={p.id} value={p.title} className="bg-[var(--surface)] text-[var(--fg)] py-2">
+                          {p.title} ({p.subtitle})
+                        </option>
+                      ))}
+                    </select>
                   </div>
+                </div>
 
-                </form>
-              </div>
+                <div className="form-group">
+                  <label htmlFor="message" className="form-label">Message / Inquiry Details</label>
+                  <textarea
+                    id="message"
+                    className="form-input"
+                    style={{ minHeight: "120px", resize: "vertical" }}
+                    placeholder="Provide details about your unit requirements, budget, or preferred visit date..."
+                  ></textarea>
+                </div>
+
+                <div className="form-group">
+                  <label className="checkbox-label">
+                    <input type="checkbox" id="terms" className="checkbox-input" required />
+                    <span className="checkbox-custom"></span>
+                    I agree to the Terms &amp; Privacy Policy
+                  </label>
+                </div>
+
+                <button type="submit" className="form-submit-btn">
+                  Submit Inquiry Request &gt;
+                </button>
+              </form>
             </div>
 
           </div>
-
         </div>
       </section>
 
