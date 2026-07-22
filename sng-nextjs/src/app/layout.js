@@ -29,7 +29,7 @@ export const metadata = {
 import Navbar from "@/components/layout/Navbar";
 import DotNav from "@/components/layout/DotNav";
 import Footer from "@/components/layout/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import CustomCursor from "@/components/ui/CustomCursor";
 
 export default function RootLayout({ children }) {

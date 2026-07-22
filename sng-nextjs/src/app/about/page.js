@@ -4,7 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 
-import SmartStackSection from '@/components/SmartStackSection';
+import SmartStackSection from '@/components/about/SmartStackSection';
 import { Award, Eye, Target, User } from 'lucide-react';
 
 if (typeof window !== 'undefined') {
