@@ -1,9 +1,11 @@
 'use client';
 import React from 'react';
+import Link from 'next/link';
 
 export default function ProjectsSection() {
   const projectCardsData = [
     {
+      slug: 'kumo-penthouse',
       badgeText: 'New Project',
       badgeClass: '',
       image: '/assets/residence_interior.jpg',
@@ -13,6 +15,7 @@ export default function ProjectsSection() {
       desc: 'Sky terrace private hot spring, panoramic vistas of Kiyomizu-dera temple, calacatta gold details.'
     },
     {
+      slug: 'niwa-pavilion',
       badgeText: 'Completed',
       badgeClass: 'badge-completed',
       image: '/assets/hero_residence.jpg',
@@ -22,6 +25,7 @@ export default function ProjectsSection() {
       desc: 'Double-height private glass atrium opening into stone gardens, tadelakt plaster, smoked oak.'
     },
     {
+      slug: 'valley-suite',
       badgeText: 'Coming Soon',
       badgeClass: 'badge-coming-soon',
       image: '/assets/amenity_pool.jpg',
@@ -31,6 +35,7 @@ export default function ProjectsSection() {
       desc: 'Floating cedar veranda overlooking local bamboo groves, river-stone hot-tub baths.'
     },
     {
+      slug: 'sora-villa',
       badgeText: 'New Project',
       badgeClass: '',
       image: '/assets/marble_detail.jpg',
@@ -58,48 +63,43 @@ export default function ProjectsSection() {
               landscapes. Reinterpreting regional craft methods through
               architectural minimalism and timeless light.
             </p>
-            <a href="#contact" className="btn btn-secondary" style={{ marginTop: "var(--space-2)" }}>
-              Request Portfolio Catalog
+            <Link href="/projects" className="btn btn-secondary" style={{ marginTop: "var(--space-2)" }}>
+              Explore All Projects
               <svg style={{ width: "10px", height: "10px", fill: "currentColor", marginLeft: "4px" }} viewBox="0 0 24 24">
                 <path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"></path>
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
 
-        {/* Infinite Marquee Partner Logos - Spanning Full Width */}
+        {/* Infinite Marquee Partner Logos */}
         <div className="marquee">
           <div className="marquee-inner">
             <div className="marquee-group">
-              {/* Item 1 */}
               <div className="brand-logo-card">
                 <div className="brand-logo-img-wrapper">
                   <img src="/assets/logo_conglomerate.svg" alt="Al Hoty Group" />
                 </div>
                 <span className="brand-category">Conglomerate</span>
               </div>
-              {/* Item 2 */}
               <div className="brand-logo-card">
                 <div className="brand-logo-img-wrapper">
                   <img src="/assets/logo_pharmacy.svg" alt="al-dawaa" />
                 </div>
                 <span className="brand-category">Pharmacy</span>
               </div>
-              {/* Item 3 */}
               <div className="brand-logo-card">
                 <div className="brand-logo-img-wrapper">
                   <img src="/assets/logo_energy.svg" alt="Midad" />
                 </div>
                 <span className="brand-category">Energy</span>
               </div>
-              {/* Item 4 */}
               <div className="brand-logo-card">
                 <div className="brand-logo-img-wrapper">
                   <img src="/assets/logo_fashion.svg" alt="Mashar" />
                 </div>
                 <span className="brand-category">Fashion</span>
               </div>
-              {/* Item 5 */}
               <div className="brand-logo-card">
                 <div className="brand-logo-img-wrapper">
                   <img src="/assets/logo_ecommerce.svg" alt="Mustadam" />
@@ -108,72 +108,30 @@ export default function ProjectsSection() {
               </div>
             </div>
             <div className="marquee-group">
-              {/* Item 1 */}
               <div className="brand-logo-card">
                 <div className="brand-logo-img-wrapper">
                   <img src="/assets/logo_conglomerate.svg" alt="Al Hoty Group" />
                 </div>
                 <span className="brand-category">Conglomerate</span>
               </div>
-              {/* Item 2 */}
               <div className="brand-logo-card">
                 <div className="brand-logo-img-wrapper">
                   <img src="/assets/logo_pharmacy.svg" alt="al-dawaa" />
                 </div>
                 <span className="brand-category">Pharmacy</span>
               </div>
-              {/* Item 3 */}
               <div className="brand-logo-card">
                 <div className="brand-logo-img-wrapper">
                   <img src="/assets/logo_energy.svg" alt="Midad" />
                 </div>
                 <span className="brand-category">Energy</span>
               </div>
-              {/* Item 4 */}
               <div className="brand-logo-card">
                 <div className="brand-logo-img-wrapper">
                   <img src="/assets/logo_fashion.svg" alt="Mashar" />
                 </div>
                 <span className="brand-category">Fashion</span>
               </div>
-              {/* Item 5 */}
-              <div className="brand-logo-card">
-                <div className="brand-logo-img-wrapper">
-                  <img src="/assets/logo_ecommerce.svg" alt="Mustadam" />
-                </div>
-                <span className="brand-category">Ecommerce</span>
-              </div>
-            </div>
-            <div className="marquee-group">
-              {/* Item 1 */}
-              <div className="brand-logo-card">
-                <div className="brand-logo-img-wrapper">
-                  <img src="/assets/logo_conglomerate.svg" alt="Al Hoty Group" />
-                </div>
-                <span className="brand-category">Conglomerate</span>
-              </div>
-              {/* Item 2 */}
-              <div className="brand-logo-card">
-                <div className="brand-logo-img-wrapper">
-                  <img src="/assets/logo_pharmacy.svg" alt="al-dawaa" />
-                </div>
-                <span className="brand-category">Pharmacy</span>
-              </div>
-              {/* Item 3 */}
-              <div className="brand-logo-card">
-                <div className="brand-logo-img-wrapper">
-                  <img src="/assets/logo_energy.svg" alt="Midad" />
-                </div>
-                <span className="brand-category">Energy</span>
-              </div>
-              {/* Item 4 */}
-              <div className="brand-logo-card">
-                <div className="brand-logo-img-wrapper">
-                  <img src="/assets/logo_fashion.svg" alt="Mashar" />
-                </div>
-                <span className="brand-category">Fashion</span>
-              </div>
-              {/* Item 5 */}
               <div className="brand-logo-card">
                 <div className="brand-logo-img-wrapper">
                   <img src="/assets/logo_ecommerce.svg" alt="Mustadam" />
@@ -185,10 +143,15 @@ export default function ProjectsSection() {
         </div>
       </div>
 
-      {/* Project Cards - Full Width Static Row */}
+      {/* Project Cards - Clickable Link to Details */}
       <div className="project-cards-static-row" style={{ width: '100%', padding: '0 var(--space-6)', display: 'flex', gap: 'var(--space-6)', overflowX: 'auto', marginBottom: 'var(--space-12)' }}>
         {projectCardsData.map((card, index) => (
-          <div className="project-card" key={`card-${index}`}>
+          <Link
+            href={`/projects/${card.slug}`}
+            className="project-card block text-left no-underline"
+            key={`card-${index}`}
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
             <div className={`badge ${card.badgeClass || ''}`}>{card.badgeText}</div>
             <div className="project-card-image">
               <img src={card.image} alt={card.alt} />
@@ -200,7 +163,7 @@ export default function ProjectsSection() {
                 <p className="project-card-desc">{card.desc}</p>
               </div>
               <div className="project-card-action">
-                <span className="know-more-text">Know More</span>
+                <span className="know-more-text">View Full Details</span>
                 <div className="project-card-arrow">
                   <svg style={{ width: "12px", height: "12px", fill: "currentColor" }} viewBox="0 0 24 24">
                     <path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"></path>
@@ -208,7 +171,7 @@ export default function ProjectsSection() {
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>
