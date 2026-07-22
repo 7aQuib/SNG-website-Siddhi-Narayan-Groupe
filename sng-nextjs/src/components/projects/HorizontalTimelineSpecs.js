@@ -63,47 +63,47 @@ export default function HorizontalTimelineSpecs({ specifications, projectTitle }
       <div className="w-full overflow-x-auto md:overflow-hidden pb-8 no-scrollbar">
         <div
           ref={trackRef}
-          className="flex items-center gap-8 md:gap-12 px-6 sm:px-12 md:px-20 min-w-max relative py-12"
+          className="flex items-start gap-8 md:gap-12 px-6 sm:px-12 md:px-20 min-w-max relative py-12"
         >
           {/* Continuous Glowing Golden Timeline Axis Line */}
-          <div className="absolute top-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[var(--accent)] to-transparent opacity-40 z-0" />
+          {/* Positioned exactly at the center of the node circles (py-12 top padding = 48px + 16px half of h-8 = 64px) */}
+          <div className="absolute top-[64px] left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[var(--accent)] to-transparent opacity-40 z-0" />
 
           {specifications.map((spec, idx) => {
-            const isEven = idx % 2 === 0;
             return (
               <div
                 key={idx}
-                className="relative z-10 flex flex-col items-center min-w-[260px] sm:min-w-[300px] md:min-w-[340px] group"
+                className="relative z-10 flex flex-col items-center min-w-[280px] sm:min-w-[320px] md:min-w-[360px] group flex-shrink-0 h-full"
               >
                 {/* Central Timeline Node Indicator */}
-                <div className="relative mb-6 flex items-center justify-center">
+                <div className="relative mb-8 flex items-center justify-center flex-shrink-0">
                   <div className="w-8 h-8 rounded-full bg-[var(--surface)] border-2 border-[var(--accent)] flex items-center justify-center text-[var(--accent)] shadow-lg group-hover:scale-125 transition-transform duration-300">
                     <div className="w-2.5 h-2.5 rounded-full bg-[var(--accent)] animate-pulse" />
                   </div>
                   {/* Step Badge */}
-                  <span className="absolute -top-7 text-[10px] font-mono font-bold tracking-widest text-[var(--accent)] uppercase bg-[var(--surface-warm)] px-2 py-0.5 rounded border border-[var(--border)]">
+                  <span className="absolute -top-8 text-[10px] font-mono font-bold tracking-widest text-[var(--accent)] uppercase bg-[var(--surface-warm)] px-2 py-0.5 rounded border border-[var(--border)]">
                     0{idx + 1}
                   </span>
                 </div>
 
                 {/* Specification Card Container */}
-                <div className="w-full bg-[var(--surface)] p-7 sm:p-8 rounded-[var(--radius-lg)] border border-[var(--border)] group-hover:border-[var(--accent)] shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:-translate-y-2 relative">
+                <div className="w-full flex-grow bg-[var(--surface)] p-6 sm:p-8 rounded-[var(--radius-lg)] border border-[var(--border)] group-hover:border-[var(--accent)] shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:-translate-y-2 relative flex flex-col justify-between min-h-[220px]">
                   
                   {/* Card Header & Category */}
-                  <div className="flex items-center justify-between mb-4 border-b border-[var(--border-soft)] pb-3">
+                  <div className="flex items-center justify-between mb-4 border-b border-[var(--border-soft)] pb-4">
                     <span className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-mono font-semibold group-hover:text-[var(--accent)] transition-colors">
                       {spec.label}
                     </span>
-                    <CheckCircle2 size={14} className="text-[var(--accent)] opacity-70 group-hover:opacity-100" />
+                    <CheckCircle2 size={16} className="text-[var(--accent)] opacity-70 group-hover:opacity-100" />
                   </div>
 
                   {/* Main Value */}
-                  <h4 className="text-base sm:text-lg md:text-xl font-bold text-[var(--fg)] font-sans tracking-wide leading-snug">
+                  <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-[var(--fg)] font-sans tracking-wide leading-snug mb-4">
                     {spec.value}
                   </h4>
 
                   {/* Decorative Subtle Accent Tag */}
-                  <div className="mt-4 pt-3 border-t border-[var(--border-soft)] flex items-center justify-between text-[10px] text-[var(--muted)] font-mono">
+                  <div className="mt-auto pt-4 border-t border-[var(--border-soft)] flex items-center justify-between text-[10px] text-[var(--muted)] font-mono">
                     <span>PARAM_0{idx + 1}</span>
                     <span className="text-[var(--accent)]">VERIFIED ✓</span>
                   </div>
