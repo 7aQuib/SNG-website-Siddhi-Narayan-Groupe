@@ -59,17 +59,6 @@ export default function About() {
       }
     });
 
-    gsap.from('.legacy-stat', {
-      y: 50,
-      opacity: 0,
-      duration: 1,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: '.legacy-section',
-        start: 'top 60%',
-      }
-    });
-
     gsap.from('.legacy-text > *', {
       y: 30,
       opacity: 0,
@@ -196,14 +185,6 @@ export default function About() {
                 alt="33 Years of Legacy" 
                 className="legacy-img w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
               />
-              <div className="legacy-stat absolute bottom-0 left-0 p-8 pr-12 pt-12 border-t border-r" style={{ backgroundColor: 'var(--surface-warm)', borderColor: 'var(--border)' }}>
-                <div style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-3xl)', color: 'var(--accent)', lineHeight: 1, marginBottom: 'var(--space-2)' }}>
-                  3000+
-                </div>
-                <div style={{ fontFamily: 'var(--font-body)', fontSize: 'var(--text-xs)', letterSpacing: '0.15em', fontWeight: 600, color: 'var(--fg)', textTransform: 'uppercase' }}>
-                  Happy Families
-                </div>
-              </div>
             </div>
 
             <div className="legacy-text max-w-xl">
