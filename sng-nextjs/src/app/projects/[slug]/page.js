@@ -8,15 +8,16 @@ import { ArrowLeft, Check, Sparkles, MapPin, Calendar, Ruler, User, ShieldCheck,
 
 const getSpecIcon = (label) => {
   const l = label.toLowerCase();
-  if (l.includes('location')) return <MapPin size={18} strokeWidth={1.5} />;
-  if (l.includes('completion') || l.includes('year')) return <Calendar size={18} strokeWidth={1.5} />;
-  if (l.includes('config') || l.includes('bhk')) return <Hexagon size={18} strokeWidth={1.5} />;
-  if (l.includes('status')) return <CheckCircle2 size={18} strokeWidth={1.5} />;
-  if (l.includes('wing') || l.includes('tower')) return <Building size={18} strokeWidth={1.5} />;
-  if (l.includes('developer') || l.includes('architect')) return <User size={18} strokeWidth={1.5} />;
-  if (l.includes('rera') || l.includes('legal')) return <ShieldCheck size={18} strokeWidth={1.5} />;
-  if (l.includes('area') || l.includes('sq.ft')) return <Maximize size={18} strokeWidth={1.5} />;
-  return <Sparkles size={18} strokeWidth={1.5} />;
+  const iconProps = { size: 28, strokeWidth: 1.2 };
+  if (l.includes('location')) return <MapPin {...iconProps} />;
+  if (l.includes('completion') || l.includes('year')) return <Calendar {...iconProps} />;
+  if (l.includes('config') || l.includes('bhk')) return <Hexagon {...iconProps} />;
+  if (l.includes('status')) return <CheckCircle2 {...iconProps} />;
+  if (l.includes('wing') || l.includes('tower')) return <Building {...iconProps} />;
+  if (l.includes('developer') || l.includes('architect')) return <User {...iconProps} />;
+  if (l.includes('rera') || l.includes('legal')) return <ShieldCheck {...iconProps} />;
+  if (l.includes('area') || l.includes('sq.ft')) return <Maximize {...iconProps} />;
+  return <Sparkles {...iconProps} />;
 };
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -233,13 +234,13 @@ export default function ProjectDetailPage({ params }) {
             {project.specifications.map((spec, idx) => (
               <div
                 key={idx}
-                className="anim-spec-card pasr-card p-6 min-h-[130px] flex flex-col justify-between border border-[var(--border)] bg-[var(--surface-warm)] rounded-[var(--radius-md)] hover:border-[var(--accent)] hover:shadow-xl transition-all group"
+                className="anim-spec-card pasr-card p-6 min-h-[160px] flex flex-col justify-center items-center text-center gap-4 border border-[var(--border)] bg-[var(--surface-warm)] rounded-[var(--radius-md)] hover:border-[var(--accent)] hover:shadow-xl transition-all group"
               >
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col items-center gap-3">
                   <div className="text-[var(--accent)] opacity-80 group-hover:opacity-100 transition-opacity">
                     {getSpecIcon(spec.label)}
                   </div>
-                  <span className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-mono block group-hover:text-[var(--accent)] transition-colors mb-2">
+                  <span className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-mono block group-hover:text-[var(--accent)] transition-colors">
                     {spec.label}
                   </span>
                 </div>
