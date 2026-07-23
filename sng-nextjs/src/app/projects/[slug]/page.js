@@ -8,7 +8,7 @@ import { ArrowLeft, Check, Sparkles, MapPin, Calendar, Ruler, User, ShieldCheck,
 
 const getSpecIcon = (label) => {
   const l = label.toLowerCase();
-  const iconProps = { size: 28, strokeWidth: 1.2 };
+  const iconProps = { size: 36, strokeWidth: 1.2 };
   if (l.includes('location')) return <MapPin {...iconProps} />;
   if (l.includes('completion') || l.includes('year')) return <Calendar {...iconProps} />;
   if (l.includes('config') || l.includes('bhk')) return <Hexagon {...iconProps} />;
@@ -234,7 +234,7 @@ export default function ProjectDetailPage({ params }) {
             {project.specifications.map((spec, idx) => (
               <div
                 key={idx}
-                className="anim-spec-card pasr-card p-6 min-h-[160px] flex flex-col justify-center items-center text-center gap-4 border border-[var(--border)] bg-[var(--surface-warm)] rounded-[var(--radius-md)] hover:border-[var(--accent)] hover:shadow-xl transition-all group"
+                className="anim-spec-card pasr-card p-6 min-h-[160px] flex flex-col justify-between items-center text-center gap-4 border border-[var(--border)] bg-[var(--surface-warm)] rounded-[var(--radius-md)] hover:border-[var(--accent)] hover:shadow-xl transition-all group"
               >
                 <div className="flex flex-col items-center gap-3">
                   <div className="text-[var(--accent)] opacity-80 group-hover:opacity-100 transition-opacity">
