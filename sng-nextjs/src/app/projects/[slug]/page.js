@@ -4,7 +4,20 @@ import React, { useRef, use } from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getProjectBySlug, projectsData } from '@/data/projectsData';
-import { ArrowLeft, Check, Sparkles, MapPin, Calendar, Ruler, User, ShieldCheck } from 'lucide-react';
+import { ArrowLeft, Check, Sparkles, MapPin, Calendar, Ruler, User, ShieldCheck, Building, CheckCircle2, Hexagon, Maximize } from 'lucide-react';
+
+const getSpecIcon = (label) => {
+  const l = label.toLowerCase();
+  if (l.includes('location')) return <MapPin size={18} strokeWidth={1.5} />;
+  if (l.includes('completion') || l.includes('year')) return <Calendar size={18} strokeWidth={1.5} />;
+  if (l.includes('config') || l.includes('bhk')) return <Hexagon size={18} strokeWidth={1.5} />;
+  if (l.includes('status')) return <CheckCircle2 size={18} strokeWidth={1.5} />;
+  if (l.includes('wing') || l.includes('tower')) return <Building size={18} strokeWidth={1.5} />;
+  if (l.includes('developer') || l.includes('architect')) return <User size={18} strokeWidth={1.5} />;
+  if (l.includes('rera') || l.includes('legal')) return <ShieldCheck size={18} strokeWidth={1.5} />;
+  if (l.includes('area') || l.includes('sq.ft')) return <Maximize size={18} strokeWidth={1.5} />;
+  return <Sparkles size={18} strokeWidth={1.5} />;
+};
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -222,9 +235,14 @@ export default function ProjectDetailPage({ params }) {
                 key={idx}
                 className="anim-spec-card pasr-card p-6 min-h-[130px] flex flex-col justify-between border border-[var(--border)] bg-[var(--surface-warm)] rounded-[var(--radius-md)] hover:border-[var(--accent)] hover:shadow-xl transition-all group"
               >
-                <span className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-mono block group-hover:text-[var(--accent)] transition-colors mb-2">
-                  {spec.label}
-                </span>
+                <div className="flex flex-col gap-3">
+                  <div className="text-[var(--accent)] opacity-80 group-hover:opacity-100 transition-opacity">
+                    {getSpecIcon(spec.label)}
+                  </div>
+                  <span className="text-[10px] uppercase tracking-widest text-[var(--muted)] font-mono block group-hover:text-[var(--accent)] transition-colors mb-2">
+                    {spec.label}
+                  </span>
+                </div>
                 <span className="text-sm sm:text-base font-semibold text-[var(--fg)] font-sans tracking-wide">
                   {spec.value}
                 </span>
