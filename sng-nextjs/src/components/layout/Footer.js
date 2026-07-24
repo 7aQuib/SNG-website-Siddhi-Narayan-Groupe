@@ -18,6 +18,7 @@ export default function Footer() {
             <li><a href="#projects">Projects</a></li>
             <li><a href="#map">Legacy</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><Link href="/privacy">Privacy Policy</Link></li>
           </ul>
           <div className="footer-socials">
             <a href="#" className="social-icon-btn">IN</a>

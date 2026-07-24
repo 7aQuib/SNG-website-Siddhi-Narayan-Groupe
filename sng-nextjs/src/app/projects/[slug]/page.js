@@ -425,7 +425,7 @@ export default function ProjectDetailPage({ params }) {
                   <label className="checkbox-label">
                     <input type="checkbox" id="terms" className="checkbox-input" required />
                     <span className="checkbox-custom"></span>
-                    I agree to the Terms &amp; Privacy Policy
+                    I agree to the <Link href="/privacy" className="underline hover:text-[var(--accent)] transition-colors">Terms &amp; Privacy Policy</Link>
                   </label>
                 </div>
 
