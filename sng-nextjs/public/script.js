@@ -353,21 +353,7 @@ let animationTime = 0;
       inquireRenderer.render(inquireScene, inquireCamera);
     }
 
-    // --- 8. Inquiry Form Handler ---
-    function handleInquiry(e) {
-      e.preventDefault();
-      const btn = document.querySelector('.form-submit-btn');
-      btn.innerText = "Transmitting registry info...";
-      btn.disabled = true;
-
-      setTimeout(() => {
-        btn.innerText = "Registry info received successfully";
-        btn.style.backgroundColor = "var(--success, #5fa36a)"; // Success green matching design system token
-        btn.style.color = "#ffffff";
-        document.getElementById('inquiryForm').reset();
-      }, 1500);
-    }
-
+    // Form handling is now managed by React state and API routes.
     // --- 8.5 Project slider navigation ---
     let projectSliderIndex = 0;
     const projectSliderContainer = document.querySelector('.project-cards-container');

@@ -1,8 +1,47 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import { projectsData } from '@/data/projectsData';
 
 export default function ContactSection() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    project: projectsData[0]?.title || '',
+    message: ''
+  });
+  
+  const [status, setStatus] = useState('idle');
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('loading');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', project: projectsData[0]?.title || '', message: '' });
+        setTimeout(() => setStatus('idle'), 3000);
+      } else {
+        setStatus('error');
+        setTimeout(() => setStatus('idle'), 3000);
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 3000);
+    }
+  };
+
   return (
     <section id="contact" className="reveal">
       <div className="container inquiry-grid">
@@ -41,22 +80,23 @@ export default function ContactSection() {
 
         {/* Right side: Inquiry Form */}
         <div className="inquiry-right">
-          <form id="inquiryForm" onSubmit={(e) => window.handleInquiry && window.handleInquiry(e)}>
+          <form id="inquiryForm" onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="name" className="form-label">Full Name</label>
-              <input type="text" id="name" className="form-input" placeholder="Enter your full name" required />
+              <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} className="form-input" placeholder="Enter your full name" required />
             </div>
             <div className="form-group">
               <label htmlFor="email" className="form-label">Email Address</label>
-              <input type="email" id="email" className="form-input" placeholder="Enter your email address" required />
+              <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} className="form-input" placeholder="Enter your email address" required />
             </div>
             <div className="form-group">
               <label htmlFor="home-project-select" className="form-label">Select Project Interest</label>
               <div className="relative w-full">
                 <select
                   id="home-project-select"
-                  name="residence-type"
-                  defaultValue={projectsData[0]?.title}
+                  name="project"
+                  value={formData.project}
+                  onChange={handleChange}
                   className="form-input appearance-none w-full pr-10 cursor-pointer bg-[var(--bg)] text-[var(--fg)] border border-[var(--border)] rounded-[var(--radius-sm)] py-3.5 px-4 text-sm font-body transition-all focus:border-[var(--accent)]"
                   style={{
                     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23c2a661' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")`,
@@ -75,7 +115,7 @@ export default function ContactSection() {
             </div>
             <div className="form-group">
               <label htmlFor="message" className="form-label">Message / Inquiry Details</label>
-              <textarea id="message" className="form-input" style={{ minHeight: "120px", resize: "vertical" }}
+              <textarea id="message" name="message" value={formData.message} onChange={handleChange} className="form-input" style={{ minHeight: "120px", resize: "vertical" }}
                 placeholder="Provide details about your unit requirements, budget, or preferred visit date..."></textarea>
             </div>
             <div className="form-group">
@@ -85,8 +125,14 @@ export default function ContactSection() {
                 I agree to the Terms &amp; Privacy Policy
               </label>
             </div>
-            <button type="submit" className="form-submit-btn">
-              Submit Inquiry Request &gt;
+            <button type="submit" disabled={status === 'loading'} className="form-submit-btn" style={{
+              backgroundColor: status === 'success' ? 'var(--success, #5fa36a)' : status === 'error' ? 'var(--error, #e53e3e)' : '',
+              color: (status === 'success' || status === 'error') ? '#fff' : ''
+            }}>
+              {status === 'loading' ? 'Transmitting...' : 
+               status === 'success' ? 'Inquiry Sent Successfully ✓' : 
+               status === 'error' ? 'Failed to send' : 
+               'Submit Inquiry Request >'}
             </button>
           </form>
         </div>
@@ -94,3 +140,4 @@ export default function ContactSection() {
     </section>
   );
 }
+
