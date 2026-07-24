@@ -7,7 +7,7 @@ export const projectsData = [
     badgeText: 'Delivered (2018)',
     badgeClass: 'badge-completed',
     status: '100% Occupied',
-    heroImage: '/assets/shivam_residency.jpg',
+    heroImage: '/assets/shivam_residency.png',
     architect: 'SNG Heritage Studio',
     completionYear: '2018',
     totalArea: '4,800 sq.ft per floor',
@@ -16,7 +16,7 @@ export const projectsData = [
     overview: 'Shivam Residency is an established residential milestone by Siddhi Narayan Group located in Temghar Pada. Featuring dual-tone modern facades, vibrant street-level retail arcades, and high-efficiency floor layouts, this development set the standard for quality family living in the corridor.',
     philosophy: 'Building strong community foundations with uncompromised structural integrity, ample ventilation, and thoughtful neighborhood integration.',
     gallery: [
-      { src: '/assets/shivam_residency.jpg', title: 'Building Elevation', caption: 'Modern mid-rise residential tower with ground-level retail spaces.' },
+      { src: '/assets/shivam_residency.png', title: 'Building Elevation', caption: 'Modern mid-rise residential tower with ground-level retail spaces.' },
       { src: '/assets/residence_interior.jpg', title: 'Living Foyer', caption: 'Spacious 2 BHK living room with high-grade tile flooring.' },
       { src: '/assets/hero_residence.jpg', title: 'Balcony Views', caption: 'Expansive private balconies overlooking Temghar Pada greenery.' },
       { src: '/assets/marble_detail.jpg', title: 'Grand Entrance Lobby', caption: 'Marble-clad secure lobby with 24/7 CCTV surveillance.' }
@@ -118,7 +118,7 @@ export const projectsData = [
     badgeText: 'New Launch (2023)',
     badgeClass: '',
     status: 'In Fast-Track Development',
-    heroImage: '/assets/om_sai_one_park.jpg',
+    heroImage: '/assets/om_sai_one_park.png',
     architect: 'SNG Modern Sky Studio',
     completionYear: '2023',
     totalArea: '7,400 sq.ft per floor',
@@ -127,7 +127,7 @@ export const projectsData = [
     overview: 'Om Sai One Park is a ultra-modern skyscraper located along the strategic Bhiwandi Bypass. Featuring a striking dark navy and charcoal glass facade with a curved crown, this landmark tower offers seamless transit connectivity adjacent to the upcoming metro corridor.',
     philosophy: 'Iconic vertical minimalism designed for future-ready connectivity, high asset appreciation, and panoramic valley views.',
     gallery: [
-      { src: '/assets/om_sai_one_park.jpg', title: 'Skyscraper Tower', caption: 'Curved glass top crown with dark navy glass curtain walling.' },
+      { src: '/assets/om_sai_one_park.png', title: 'Skyscraper Tower', caption: 'Curved glass top crown with dark navy glass curtain walling.' },
       { src: '/assets/residence_interior.jpg', title: 'Sky Suite Living Room', caption: 'Floor-to-ceiling glass paneling offering unhindered valley views.' },
       { src: '/assets/amenity_pool.jpg', title: 'Sky Deck Lounge', caption: 'Rooftop barbecue lounge and stargazing observatory.' },
       { src: '/assets/marble_detail.jpg', title: 'Double-Height Foyer', caption: 'Granite & bronze air-conditioned arrival lobby.' }
